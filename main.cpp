@@ -20,11 +20,11 @@
 
 4) PLAY
 - 1 DOMINO IN HEAD, NULL IN HEAD2 index(0) 		         IN MAIN ONLY, LINE 164
-- 1 DOMINO IN HEAD, DOMINO(S) IN HEAD2  index(0)         IN MAIN ONLY, LINE 175
-- DOMINOS IN HEAD, NULL IN HEAD2        index(0)         IN MAIN & FUNCTION, LINE 188
-- DOMINOS IN HEAD, DOMINOS IN HEAD2     index(0)         IN MAIN & FUNCTION, LINE 202
-- DOMINO(S) IN HEAD, NO DOMINOS IN HEAD2 index(1+)       IN MAIN & FUNCTION, LINE 223 & 511
-- DOMINO(S) IN HEAD, DOMINO(S) IN HEAD2  index(1+)       IN MAIN & FUNCTION, LINE 236 & 511
+- 1 DOMINO IN HEAD, DOMINO(S) IN HEAD2  index(0)         	 IN MAIN ONLY, LINE 175
+- DOMINOS IN HEAD, NULL IN HEAD2        index(0)         	 IN MAIN & FUNCTION, LINE 188
+- DOMINOS IN HEAD, DOMINOS IN HEAD2     index(0)         	 IN MAIN & FUNCTION, LINE 202
+- DOMINO(S) IN HEAD, NO DOMINOS IN HEAD2 index(1+)       	 IN MAIN & FUNCTION, LINE 223 & 511
+- DOMINO(S) IN HEAD, DOMINO(S) IN HEAD2  index(1+)       	 IN MAIN & FUNCTION, LINE 236 & 511
 */
 
 //----------------------------
@@ -50,17 +50,17 @@ int useRandom = 16;           // REQUIRED CODE FOR ASSIGNMENT
 int main(int argc, char ** argv)
 {
 	useRandom = argc;		  // REQUIRED CODE FOR ASSIGNMENT
-	srand(time(NULL));	      // REQUIRED CODE FOR ASSIGNMENT
+	srand(time(NULL));	          // REQUIRED CODE FOR ASSIGNMENT
 	
 	int choice = 1;			  // INITIALIZED TO 1 TO ENTER WHILE LOOP
-	int index; 				  // FOR DELETE FUNCTION
-	int i; 				      // COUNTER
+	int index; 		          // FOR DELETE FUNCTION
+	int i; 				  // COUNTER
 	
 	linkedList *head; 		  // DO NOT NEED MALLOC- INITIALIZED BY FUNCTION
 	linkedList *tail;
 	linkedList *temp;
 	
-	linkedList *head2=NULL;	  // WAS A SEG FAULT WHEN NOT NULLED
+	linkedList *head2=NULL;	           // WAS A SEG FAULT WHEN NOT NULLED
 	linkedList *tail2=NULL;
 	linkedList *temp2=NULL;
 	
@@ -280,7 +280,7 @@ linkedList* addDomino()
 	linkedList *newNode = malloc(sizeof(linkedList)); //CREATE NEW STRUCT
 	newNode->number1 = malloc(sizeof(int));           //CREATE INT
 	newNode->number2 = malloc(sizeof(int));           //CREATE INT
-	newNode->next = NULL;							  //NEXT POINTER NULL
+	newNode->next = NULL;				  //NEXT POINTER NULL
 	
 	printf("Enter the first number\n:");
 	  //scanf("%d", newNode->number1 );
@@ -427,7 +427,7 @@ linkedList* dominoPlay(linkedList *head,int index)//INDEX 0 PLAY FUNCTION
 	linkedList *newNode = malloc(sizeof(linkedList)); //CREATE STRUCT
 	newNode->number1 = malloc(sizeof(int));           //CREATE INT
 	newNode->number2 = malloc(sizeof(int));           //CREATE INT
-	newNode->next = NULL;							  //NEXT POINTER NULL
+	newNode->next = NULL;				  //NEXT POINTER NULL
 	
 	if (head == NULL) //IS THIS NEEDED? IN MAIN?
 	{
