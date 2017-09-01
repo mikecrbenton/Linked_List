@@ -21,7 +21,7 @@ You must write at least the following four functions.
 
 ### Assignment 2: Extension of Assignment 1
 This assignment will be to simulate more accurately the game of Mexican Trains. We are only going to emulate a portion of the
-game. For the real game, each player select 15 dominos. Then the player with the highest double plays that double in the middle. Each player then has a chance to play as many dominos in a row that they can legally play. If the middle is 4:4 then you could play a 4:1 next but not a 2:3 (the 4’s match). If you cannot play, you draw another domino from theboneyard (dominos that are right-side-down and all mixed up).
+game (For the real game, each player select 15 dominos. Then the player with the highest double plays that double in the middle. Each player then has a chance to play as many dominos in a row that they can legally play. If the middle is 4:4 then you could play a 4:1 next but not a 2:3 (the 4’s match). If you cannot play, you draw another domino from the boneyard (dominos that are right-side-down and all mixed up) ).
 In our game we will simulate a single player drawing dominos (adding them to their hand) and then playing them. I only have one required function, which is listed below. In this game, you may play any domino as the first domino.
 ##### Requirements.
 * I. You must use a domino structure.
