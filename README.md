@@ -19,7 +19,7 @@ You must write at least the following four functions.
 * The **removeDomino** function will remove the domino at the location index. This can be done by setting the used flag for that index to ’N’);
 * The **print** function will print out all the used dominos (used field = Y).
 
-## Assignment 2: Extension of Assignment 1
+### Assignment 2: Extension of Assignment 1
 This assignment will be to simulate more accurately the game of Mexican Trains. We are only going to emulate a portion of the
 game. For the real game, each player select 15 dominos. Then the player with the highest double plays that double in the middle. Each player then has a chance to play as many dominos in a row that they can legally play. If the middle is 4:4 then you could play a 4:1 next but not a 2:3 (the 4’s match). If you cannot play, you draw another domino from theboneyard (dominos that are right-side-down and all mixed up).
 In our game we will simulate a single player drawing dominos (adding them to their hand) and then playing them. I only have one required function, which is listed below. In this game, you may play any domino as the first domino.
@@ -32,22 +32,22 @@ In our game we will simulate a single player drawing dominos (adding them to the
 * VI. Dominoes may not be deleted from the played hand.
 * VII. Deleted Dominoes must be freed using the free function.
 You must include the following code in your program. This will allow me to test your program using a known input (./a.out 1), but you can have random dominos created using the normal command (./a.out).
-#include time.h
-int genRandomNumber();
-int useRandom = 16;
-. . .
-int main(int argc, char argv){
-  useRandom = argc;
-  srand(time(NULL));
-. . .
-int genRandomNumber(){
-  int random;
-   if(useRandom == 1){
-     random = rand() % 13;
-}
-   else{
-     scanf("%d", &random);
-}
-return random;
-}
+* #include time.h
+* int genRandomNumber();
+* int useRandom = 16;
+
+* int main(int argc, char argv){
+*   useRandom = argc;
+*  srand(time(NULL));
+
+* int genRandomNumber(){
+*   int random;
+*    if(useRandom == 1){
+*      random = rand() % 13;
+* }
+*    else{
+*      scanf("%d", &random);
+* }
+* return random;
+* }
 
