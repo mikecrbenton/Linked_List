@@ -31,23 +31,5 @@ In our game we will simulate a single player drawing dominos (adding them to the
 * V. Dominoes may be deleted from the from your hand.
 * VI. Dominoes may not be deleted from the played hand.
 * VII. Deleted Dominoes must be freed using the free function.
-You must include the following code in your program. This will allow me to test your program using a known input (./a.out 1), but you can have random dominos created using the normal command (./a.out).
-* #include time.h
-* int genRandomNumber();
-* int useRandom = 16;
-*
-* int main(int argc, char argv){
-*   useRandom = argc;
-*  srand(time(NULL));
-*
-* int genRandomNumber(){
-*   int random;
-*    if(useRandom == 1){
-*      random = rand() % 13;
-* }
-*    else{
-*      scanf("%d", &random);
-* }
-* return random;
-* }
+
 
