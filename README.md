@@ -35,11 +35,11 @@ You must include the following code in your program. This will allow me to test 
 * #include time.h
 * int genRandomNumber();
 * int useRandom = 16;
-
+*
 * int main(int argc, char argv){
 *   useRandom = argc;
 *  srand(time(NULL));
-
+*
 * int genRandomNumber(){
 *   int random;
 *    if(useRandom == 1){
