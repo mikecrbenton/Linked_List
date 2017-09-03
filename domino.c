@@ -9,15 +9,15 @@
 // CORNER CASES INDEX  
 /* 
 1)ADD
-- IF LINKED LIST IS NULL (NOTHING IN LIST)     			              IN MAIN & FUNCTION, LINE 85
-- IF LINKED LIST NOT NULL (DOMINOS IN LIST)    			              IN MAIN & FUNCTION, LINE 90
+- IF LINKED LIST IS NULL (NOTHING IN LIST)     			      IN MAIN & FUNCTION, LINE 85
+- IF LINKED LIST NOT NULL (DOMINOS IN LIST)    			      IN MAIN & FUNCTION, LINE 90
 2)DELETE
 - INDEX ENTERED IS (0) - THERE IS 1 DOMINO IN LIST                    IN MAIN ONLY, LINE 132
 - INDEX ENTERED IS (0) - THERE IS MORE THAN 1 DOMINO(S) IN LIST       IN MAIN ONLY, LINE 142
 - INDEX (ABOVE 0) AND IT IS THE END OF LIST                           IN MAIN & FUNCTION, LINE 153 & 468
-- INDEX (ABOVE 0) AND IT IS IN MIDDLE OF LIST             	          IN MAIN & FUNCTION, LINE 153 & 491
+- INDEX (ABOVE 0) AND IT IS IN MIDDLE OF LIST             	      IN MAIN & FUNCTION, LINE 153 & 491
 4) PLAY
-- 1 DOMINO IN LIST 1, NULL IN LIST 2                  index(0) 		  IN MAIN ONLY, LINE 211
+- 1 DOMINO IN LIST 1, NULL IN LIST 2                  index(0)        IN MAIN ONLY, LINE 211
 - 1 DOMINO IN LIST 1, THERE ARE DOMINO(S) IN LIST 2   index(0)        IN MAIN ONLY, LINE 224
 - DOMINOS IN LIST 1, NULL IN LIST 2                   index(0)        IN MAIN & FUNCTION, LINE 241
 - DOMINOS IN LIST 1, DOMINOS IN LIST 2                index(0)        IN MAIN & FUNCTION, LINE 255
@@ -26,7 +26,7 @@
 */
 
 //----------------------------
-typedef struct linkedList{    //DECLARING A TYPE- A NEW STRUCT TYPE
+typedef struct linkedList{       //DECLARING A TYPE- A NEW STRUCT TYPE
 
 	int *number1;            // REMEMBER THESE ARE POINTERS - HOLDS 1ST DOMINO NUMBER
 	int *number2;            // REMEMBER THESE ARE POINTERS - HOLDS 2ND DOMINO NUMBER
@@ -34,7 +34,7 @@ typedef struct linkedList{    //DECLARING A TYPE- A NEW STRUCT TYPE
 } linkedList;
 //----------------------------
 
-linkedList* addDomino();  							  //RETURNS A NEW DOMINO (NODE)
+linkedList* addDomino();  			      //RETURNS A NEW DOMINO (NODE)
 void dominoSort(linkedList *head, linkedList *temp);
 void printCurrentHand(linkedList *head);
 void printPlayedHand(linkedList *head2);
@@ -50,17 +50,17 @@ int checkUserInput(int index, int choice);            // CHECKS USER INPUT FOR D
 int main(int argc, char ** argv)
 {
 	useRandom = argc;		  // REQUIRED CODE FOR ASSIGNMENT - 
-	srand(time(NULL));	      // REQUIRED CODE FOR ASSIGNMENT
+	srand(time(NULL));	          // REQUIRED CODE FOR ASSIGNMENT
 	
 	int choice = 1;			  // INITIALIZED TO 1 TO ENTER WHILE LOOP
 	int index; 		          // FOR DELETE FUNCTION
-	int i; 				      // COUNTER
+	int i; 				  // COUNTER
 	
 	linkedList *head; 		  // REPRESENTS THE FIRST LIST OF DOMINOS (CURRENT HAND)
 	linkedList *tail;
 	linkedList *temp;		  // DO NOT NEED MALLOC- INITIALIZED BY FUNCTION
 	
-	linkedList *head2=NULL;	  // REPRESENTS THE SECOND LIST OF DOMINOS (PLAYED HAND)
+	linkedList *head2=NULL;	          // REPRESENTS THE SECOND LIST OF DOMINOS (PLAYED HAND)
 	linkedList *tail2=NULL;
 	linkedList *temp2=NULL;
 	
@@ -85,15 +85,15 @@ int main(int argc, char ** argv)
 				if(head == NULL)         // IF THIS IS THE FIRST DOMINO (NODE)
 				{
 					head = addDomino();  // RETURNS A NEW DOMINO (NODE) // HEAD WAS DECLARED EARLIER IN LINE 59
-					tail=head;			 // ONLY ONE DOMINO - TAIL POINTS TO HEAD OF THE LIST
+					tail=head;	     // ONLY ONE DOMINO - TAIL POINTS TO HEAD OF THE LIST
 				}
-				else if (head != NULL)   // IF THERES MORE THAN ONE DOMINO(NODE) IN LIST  //**ADDED "IF" ON 4-5-14 TO FIX BUG
+				else if (head != NULL)       // IF THERES MORE THAN ONE DOMINO(NODE) IN LIST  //**ADDED "IF" ON 4-5-14 TO FIX BUG
 				{
 					temp = addDomino();  // RETURNS A NEW DOMINO TO A TEMPORARY NODE
 					
 					if(*temp->number1 < *head->number1 || *temp->number1 == *head->number1) // IF NEW DOMINO IS LESS THAN OR EQUAL TO HEAD 
 					{
-						temp->next = head;                                                  // NEW DOMINO POINTS TO HEAD
+						temp->next = head;                                              // NEW DOMINO POINTS TO HEAD
 						head = temp;    													// NEW DOMINO BECOMES HEAD
 					}	
 					else // if (*temp->number1 > *head->number1)
@@ -130,7 +130,7 @@ int main(int argc, char ** argv)
 				
 				if(index == 0) // NOTE** USER INPUT WOULD HAVE BEEN 1 (NOT 0) (IT IS DECREMENTED TO O FOR CORRECT LIST COUNT)
 				{
-					if (head->next == NULL)  // THERE IS ONLY 1 DOMINO IN LIST
+					if (head->next == NULL)      // THERE IS ONLY 1 DOMINO IN LIST
 					{
 						free(head->number1); // HEAD IS DELETED
 						free(head->number2);
@@ -209,12 +209,12 @@ int main(int argc, char ** argv)
 					}
 					else if(head->next == NULL)              // ONLY ONE DOMINO IN LIST 1
 					{
-						if(head2 == NULL)                    // NO DOMINOS IN LIST 2
+						if(head2 == NULL)                // NO DOMINOS IN LIST 2
 						{
 							head2 = dominoPlay(head, index); 
 							tail2=head2;
 							
-							free(head->number1);             // HEAD IS DELETED
+							free(head->number1);     // HEAD IS DELETED
 							free(head->number2);
 							free(head);
 							head= NULL;          
@@ -222,7 +222,7 @@ int main(int argc, char ** argv)
 
 							count--; // DECREMENT COUNT TO SHOW CORRECT NUMBER OF DOMINOS    	
 						}
-						else if(head2 != NULL)               // THERE ARE MULTIPLE DOMINOS IN LIST 2
+						else if(head2 != NULL)            // THERE ARE MULTIPLE DOMINOS IN LIST 2
 						{
 							temp2 = dominoPlay(head, index);
 							tail2->next = temp2; 
@@ -239,7 +239,7 @@ int main(int argc, char ** argv)
 					}
 					else if (head->next != NULL)              // THERE IS MORE THAN 1 DOMINO IN LIST 1
 					{
-						if (head2 == NULL)                    // NO DOMINOS IN LIST 2 
+						if (head2 == NULL)                // NO DOMINOS IN LIST 2 
 						{
 						
 							head2 = dominoPlay(head, index); 
@@ -270,21 +270,21 @@ int main(int argc, char ** argv)
 					}
 				}// END OF IF INDEX=0
 
-				else if (index != 0)                           //USER INPUT WAS ABOVE THE FIRST DOMINO
+				else if (index != 0) // USER INPUT WAS ABOVE THE FIRST DOMINO
 				{
 					 
-					 if(head == NULL)                          // NOTHING IN LIST 1
+					 if(head == NULL) // NOTHING IN LIST 1
 					 {
 						// DO NOTHING //CODE ALSO ADDED TO CHECK THIS IN checkUserInput() FUNCTION
 					 }
-					 else if(head2 == NULL)                      // NO DOMINOS IN LIST 2
+					 else if(head2 == NULL)                          // NO DOMINOS IN LIST 2
 					 {
 						head2 = playDomino(head, index);         // HEAD2 LIST NEW NODE
 						tail2 = head2;                           // TAIL IS POINTING TO THE FIRST NODE
 						
-							linkedList *tailCounter = head;      //TEMPORARY VARIABLE FOR LOOP
+							linkedList *tailCounter = head;  //TEMPORARY VARIABLE FOR LOOP
 						 
-							while (tailCounter->next != NULL)    //LOOP TO FIND TAIL OF LIST 1
+							while (tailCounter->next != NULL)//LOOP TO FIND TAIL OF LIST 1
 							{
 								tailCounter=tailCounter->next;	 
 							}
@@ -292,7 +292,7 @@ int main(int argc, char ** argv)
 
 							count--; // DECREMENT COUNT TO SHOW CORRECT NUMBER OF DOMINOS IN LIST 1
 					}
-					 else if (head2 != NULL)                     // THERE ARE DOMINOS IN LIST 2
+					 else if (head2 != NULL) // THERE ARE DOMINOS IN LIST 2
 					{
 						temp2=playDomino(head, index);
 						
@@ -342,7 +342,7 @@ linkedList* addDomino()
 	linkedList *newNode = malloc(sizeof(linkedList)); //CREATE NEW STRUCT
 	newNode->number1 = malloc(sizeof(int));           //CREATE MEMORY FOR INT
 	newNode->number2 = malloc(sizeof(int));           //CREATE MEMORY FOR INT
-	newNode->next = NULL;				              //NEXT POINTER NULL
+	newNode->next = NULL;				  //NEXT POINTER NULL
 		
 	//SIMULATE DRAWING RANDOM DOMINO		  
 	*newNode->number1 = genRandomNumber();			
